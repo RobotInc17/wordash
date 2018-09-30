@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" 
+      type="image/png" 
+      href="icon.png">
+        <center>
+                <div class="top-container">
+                        <a href="index.html">Search</a>
+                        <a href="about.html">About</a>
+                        <a href="words.html">Words</a>
+                        <a href="lists.html">Lists</a>
+                      </div>
+            </center>
+<title onload="show();">Wordash</title>
+
+<script>
+    var word = "";
+              // Get the input field
+var input = document.getElementById("word");
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("button").click();
+  }
+});
+    function start(){
+        document.getElementById("link").style.visibility="hidden";
+    }
+    function openit(){
+    var strLinka = "http://www.dictionary.com/browse/" + document.getElementById("word").value;
+    word =  document.getElementById("word").value;
+    document.getElementById("link").style.visibility="visible";
+    document.getElementById("thesaurus").style.visibility="visible";
+    document.getElementById("merriam").style.visibility="visible";
+    document.getElementById("des").style.visibility="visible";
+    document.getElementById("fraze").style.visibility="visible";
+    document.getElementById("exe").style.visibility="visible";
+    var str = document.cookie.split("/");
+    document.getElementById("exe").text= "Phrases with" + " " + "'" + word + "'";
+    }
+    function link(){
+    var scrt_var = 10;
+    var strLink = "http://www.dictionary.com/browse/" + word;
+    document.getElementById("link").setAttribute("href", strLink);
+    }
+    function merriam(){
+    var scrt_var = 10;
+    var strLink = "https://www.merriam-webster.com/dictionary/" + word;
+    document.getElementById("merriam").setAttribute("href", strLink);
+    }
+    function thesaurus(){
+    var scrt_var = 10;
+    var strLink = "http://www.thesaurus.com/browse/" + word;
+    document.getElementById("thesaurus").setAttribute("href", strLink);
+    }
+    function fraze(){
+    var scrt_var = 10;
+    var strLink = "https://fraze.it/n_search.jsp?q=" + word + "&l=0";
+    document.getElementById("fraze").setAttribute("href", strLink);
+    }
+    function show(){
+        myFunction();
+    }
+    function myFunction() {
+    var list = "though/although/even though/while/if/only if/unlessuntil/provided that/assuming that/even if/in case (that)/lestthan/rather than/whether/as much as/whereas";
+    var str = list.split("/");
+    for(var x = 0; x < str.length; x++){
+        var a = document.createElement("a");
+        var node = document.createElement("LI");
+        a.textContent = str[x];
+        var link = "https://www.thefreedictionary.com/" + str[x];
+        a.setAttribute("href", link);
+        var textnode = document.createTextNode(str[x]);
+    node.appendChild(a);
+    document.getElementById("myList").appendChild(node);
+}
+    }
+</script>
+<link rel="stylesheet" href="layout.css">
+
+<body class="aaa" onload="show();">
+<center>
+<h1 class="fonta">List of conjunctions</h1>
+</center>
+<ul id="myList" class = "list">
+      </ul>
+          <script>
+var input = document.getElementById("word");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("button").click();
+    }
+});
+</script>
+</form>
+</body>
+</html>

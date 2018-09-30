@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" 
+      type="image/png" 
+      href="icon.png">
+        <center>
+                <div class="top-container">
+                        <a href="index.html">Search</a>
+                        <a href="about.html">About</a>
+                        <a href="words.html">Words</a>
+                        <a href="lists.html">Lists</a>
+                      </div>
+            </center>
+<title>Wordash</title>
+
+<script>
+    var word = "";
+              // Get the input field
+var input = document.getElementById("word");
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("button").click();
+  }
+});
+    function start(){
+        document.getElementById("link").style.visibility="hidden";
+    }
+    function openit(){
+    var strLinka = "http://www.dictionary.com/browse/" + document.getElementById("word").value;
+    word =  document.getElementById("word").value;
+    document.cookie = word;
+    document.getElementById("link").style.visibility="visible";
+    document.getElementById("thesaurus").style.visibility="visible";
+    document.getElementById("merriam").style.visibility="visible";
+    document.getElementById("des").style.visibility="visible";
+    document.getElementById("fraze").style.visibility="visible";
+    document.getElementById("exe").style.visibility="visible";
+    document.getElementById("exe").text= "Phrases with" + " " + "'" + word + "'";
+    }
+    function link(){
+    var scrt_var = 10;
+    var strLink = "http://www.dictionary.com/browse/" + word;
+    document.getElementById("link").setAttribute("href", strLink);
+    }
+    function merriam(){
+    var scrt_var = 10;
+    var strLink = "https://www.merriam-webster.com/dictionary/" + word;
+    document.getElementById("merriam").setAttribute("href", strLink);
+    }
+    function thesaurus(){
+    var scrt_var = 10;
+    var strLink = "http://www.thesaurus.com/browse/" + word;
+    document.getElementById("thesaurus").setAttribute("href", strLink);
+    }
+    function fraze(){
+    var scrt_var = 10;
+    var strLink = "https://fraze.it/n_search.jsp?q=" + word + "&l=0";
+    document.getElementById("fraze").setAttribute("href", strLink);
+    }
+</script>
+<link rel="stylesheet" href="layout.css">
+
+<body class="aaa">
+<center>
+<h1 class="fonta">Wordash: search once, learn forever.</h1>
+<p class="look">
+    Wordash is a search tool for teachers, students, and translators that aggregates definitions, synonyms, and usages for words and expressions. 
+    The words you search are locally saved, so you can quickly take a look on your vocabulary list.
+    This is Wordash - search once, learn forever.
+</p>
+          </center>
+          <script>
+var input = document.getElementById("word");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("button").click();
+    }
+});
+</script>
+</form>
+</body>
+</html>

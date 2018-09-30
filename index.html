@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" 
+      type="image/png" 
+      href="icon.png">
+        <center>
+        <div class="top-container">
+                <a href="index.html">Search</a>
+                <a href="about.html">About</a>
+                <a href="words.html">Words</a>
+                <a href="lists.html">Lists</a>
+              </div>
+            </center>
+<title>Wordash</title>
+<script>
+    var word = "";
+              // Get the input field
+var input = document.getElementById("word");
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("button").click();
+  }
+});
+var times = 0;
+    function start(){
+        document.getElementById("link").style.visibility="hidden";
+    }
+    function openit(){
+    times++;
+    var strLinka = "http://www.dictionary.com/browse/" + document.getElementById("word").value;
+    var n = document.cookie.split(";");
+    var f = n[0];
+    word =  document.getElementById("word").value;
+    var u = localStorage.getItem("words") + "/" + document.getElementById("word").value;
+    localStorage.words = u;
+    document.getElementById("link").style.visibility="visible";
+    document.getElementById("thesaurus").style.visibility="visible";
+    document.getElementById("merriam").style.visibility="visible";
+    document.getElementById("des").style.visibility="visible";
+    document.getElementById("fraze").style.visibility="visible";
+    document.getElementById("exe").style.visibility="visible";
+    document.getElementById("exe").text= "Phrases with" + " " + "'" + word + "'";
+    document.getElementById("tra").style.visibility="visible";
+    document.getElementById("tra").textContent="Images";
+    document.getElementById("tri").style.visibility="visible";
+    }
+    function link(){
+    var scrt_var = 10;
+    var strLink = "http://www.dictionary.com/browse/" + word;
+    document.getElementById("link").setAttribute("href", strLink);
+    }
+    function merriam(){
+    var scrt_var = 10;
+    var strLink = "https://www.thefreedictionary.com/" + word;
+    document.getElementById("merriam").setAttribute("href", strLink);
+    }
+    function thesaurus(){
+    var scrt_var = 10;
+    var strLink = "http://www.thesaurus.com/browse/" + word;
+    document.getElementById("thesaurus").setAttribute("href", strLink);
+    }
+    function fraze(){
+    var scrt_var = 10;
+    var strLink = "https://fraze.it/n_search.jsp?q=" + word + "&l=0";
+    document.getElementById("fraze").setAttribute("href", strLink);
+    }
+    function tri(){
+    var scrt_var = 10;
+    var strLink = "https://www.google.com/search?biw=1280&bih=615&tbm=isch&sa=1&ei=jV4gW9_ECoyZwgStjo7QBQ&q=" + word;                       
+    document.getElementById("tri").setAttribute("href", strLink);
+    }
+    function box(){
+        var x = 0;
+        if(document.getElementById("box").checked){
+      document.getElementById("link").setAttribute("target", "_self"); 
+      document.getElementById("merriam").setAttribute("target", "_self");
+      document.getElementById("thesaurus").setAttribute("target", "_self");
+      document.getElementById("fraze").setAttribute("target", "_self");
+      document.getElementById("tri").setAttribute("target", "_self");
+        }else{
+        document.getElementById("link").setAttribute("target", "_blank"); 
+      document.getElementById("merriam").setAttribute("target", "_blank");
+      document.getElementById("thesaurus").setAttribute("target", "_blank");
+      document.getElementById("fraze").setAttribute("target", "_blank");
+      document.getElementById("tri").setAttribute("target", "_blank");
+    }
+    }
+    function action(){
+          
+    }
+</script>
+<link rel="stylesheet" href="layout.css">
+
+<body class="aaa">
+<center>
+<h1 class="font">W/O/R/D/A/S/H</h1>
+<p class="look">Definitions, frazes and more</p>
+    <input id = "word" type="text" placeholder="type a word or expression" onkeypress="action()"></input>
+    <br></br>
+    <label class="container">Open link in same tab
+        <input id="box" type="checkbox" onclick="box()" value="text">
+        <span class="checkmark"></span>
+      </label>    
+      <br></br>
+    <button id="button" class="bbb" onclick="openit()">FIND</button>
+    <br></br>
+   <b><a id = "des" class="des">Definitions:</a></b>
+    <br></br>
+    <a id="link" class="link" target="_blank" onclick="link()">dictionary.com</a>
+    <br></br>
+    <a id="thesaurus" class="link" target="_blank" onclick="thesaurus()">thesaurus.com</a>
+    <br></br>
+    <a id="merriam" class="link" target="_blank" onclick="merriam()">thefreedictionary.com</a>
+    <br></br>
+    <b><a id = "exe" class="des"></a></b>
+    <br></br>
+    <a id="fraze" class="link" target="_blank" onclick="fraze()">fraze.it</a>
+    <a id="panel"></a>
+    <br></br>
+    <b><a id = "tra" class="des"></a></b>
+    <br></br>
+    <a id="tri" class="link" target="_blank" onclick="tri()">google.com/images</a>
+          </center>
+          <script>
+var input = document.getElementById("word");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("button").click();
+    }
+});
+</script>
+</form>
+</body>
+</html>
